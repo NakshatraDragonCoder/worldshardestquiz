@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="wclassth=device-wclassth, initial-scale=1.0">
+    <title>World's Hardest Quiz</title>
+</head>
+
+<body>
+    <style>
+        p {
+            font-weight: bold;
+            color: #ff69b4;
+
+        }
+
+        button {
+            align-items: center;
+            background-clip: padding-box;
+            background-color: #fa6400;
+            border: 1px solid transparent;
+            border-radius: .25rem;
+            box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+            box-sizing: border-box;
+            color: #fff;
+            cursor: pointer;
+            display: inline-flex;
+            font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            justify-content: center;
+            line-height: 1.25;
+            margin: 0;
+            min-height: 3rem;
+            padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+            position: relative;
+            text-decoration: none;
+            transition: all 250ms;
+            touch-action: manipulation;
+            vertical-align: baseline;
+            width: auto;
+        }
+
+        .button-5:hover,
+        .button-5:focus {
+            background-color: #fb8332;
+            box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+        }
+
+        .button-5:hover {
+            transform: translateY(-1px);
+        }
+
+        .button-5:active {
+            background-color: #c85000;
+            box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+            transform: translateY(0);
+        }
+    </style>
+    <script>
+        let answerPercentage = [false, false, false];
+        function correctAnswer(questionNumber) {
+            answerPercentage[questionNumber - 1] = true;
+        }
+        function wrongAnswer(questionNumber) {
+            answerPercentage[questionNumber - 1] = false;
+        }
+        function submit() {
+            let correctAnswers = 0;
+            for (let i = 0; i < 3; i++) {
+                if (answerPercentage[i] == true) {
+                    correctAnswers += 1;
+                }
+            }
+            document.getElementById("remark").textContent = "You got " + correctAnswers + " out of 3 Answers Correct.";
+        }
+    </script>
+    <header>
+        <h1>Hardest Quiz in the World!</h1>
+    </header>
+    <h2><code style="color: #40e0d0;">&lt;h1&gt;&ensp;~by Harshvardhan~&ensp;&lt;/h1&gt;</code></h2>
+    <p>Question 1: What is my least performing subject?</p>
+    <input type="radio" name="a" class="q1" onclick="correctAnswer(1)">
+    <label for="a">Kannada</label> <br>
+
+    <input type="radio" name="a" class="q1" onclick="wrongAnswer(1)">
+    <label for="a">Hindi</label> <br>
+
+    <input type="radio" name="a" class="q1" onclick="wrongAnswer(1)">
+    <label for="a">English</label> <br>
+    <input type="radio" name="a" class="q1" onclick="wrongAnswer(1)">
+    <label for="a">German</label> <br>
+
+    <p>Question 2: What is my most performing subject?</p>
+    <input type="radio" name="b" class="q2" onclick="correctAnswer(2)">
+    <label for="b">English</label> <br>
+    <input type="radio" name="b" class="q2" onclick="wrongAnswe(2)">
+    <label for="b">Maths</label> <br>
+    <input type="radio" name="b" class="q2" onclick="wrongAnswer(2)">
+    <label for="b">Computer</label> <br>
+    <input type="radio" name="b" class="q2" onclick="wrongAnswer(2)">
+    <label for="b">Art</label> <br>
+    <p>Question 3: Who is my enemy?</p>
+    <input type="radio" name="c" class="q3" onclick="wrongAnswer(3)">
+    <label for="b">Avaan</label> <br>
+    <input type="radio" name="c" class="q3" onclick="wrongAnswer(3)">
+    <label for="b">Amiya</label> <br>
+    <input type="radio" name="c" class="q3" onclick="wrongAnswer(3)">
+    <label for="b">Rishikesh</label> <br>
+    <input type="radio" name="c" class="q3" onclick="correctAnswer(3)">
+    <label for="b">Rudrakshi</label> <br>
+    <br><br>
+    <button onclick="submit()">Submit</button>
+
+    <h3 id="remark"></h3>
+</body>
+
+</html>
